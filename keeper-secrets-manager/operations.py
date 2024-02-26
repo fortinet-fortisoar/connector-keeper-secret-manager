@@ -13,7 +13,7 @@ logger = get_logger('keeper-secrets-manager')
 
 
 class KeepersSecretManager:
-    def __init__(self, config, connector_info, flag=None):
+    def __init__(self, config, connector_info, flag=False):
         self.token = config.get('credentials')
         self.verify_ssl = config.get('verify_ssl')
         try:
@@ -100,7 +100,7 @@ class KeepersSecretManager:
 def get_password(config, params, connector_info):
     try:
         records = []
-        ksm = KeepersSecretManager(config, connector_info=connector_info, flag=False)
+        ksm = KeepersSecretManager(config, connector_info=connector_info)
         all_secrets = ksm.get_password_details(config, connector_info)
         for secret in all_secrets:
             records.append(secret.dict)
@@ -112,7 +112,7 @@ def get_password(config, params, connector_info):
 
 def get_credentials(config, params, connector_info):
     try:
-        ksm = KeepersSecretManager(config, connector_info=connector_info, flag=False)
+        ksm = KeepersSecretManager(config, connector_info=connector_info)
         return ksm.get_credentials_inner(config, params=params, connector_info=connector_info)
     except Exception as err:
         logger.exception("{0}".format(str(err)))
@@ -121,7 +121,7 @@ def get_credentials(config, params, connector_info):
 
 def get_credentials_details(config, params, connector_info):
     try:
-        ksm = KeepersSecretManager(config, connector_info=connector_info, flag=False)
+        ksm = KeepersSecretManager(config, connector_info=connector_info)
         return ksm.get_credentials_details_inner(config, params=params, connector_info=connector_info)
     except Exception as err:
         logger.exception("{0}".format(str(err)))
@@ -130,7 +130,7 @@ def get_credentials_details(config, params, connector_info):
 
 def get_credential(config, params, connector_info):
     try:
-        ksm = KeepersSecretManager(config, connector_info=connector_info, flag=False)
+        ksm = KeepersSecretManager(config, connector_info=connector_info)
         return ksm.get_credential_inner(config, params=params, connector_info=connector_info)
     except Exception as err:
         logger.exception("{0}".format(str(err)))
@@ -139,7 +139,7 @@ def get_credential(config, params, connector_info):
 
 def _check_health(config, connector_info):
     try:
-        ksm = KeepersSecretManager(config, connector_info=connector_info, flag=True)
+        ksm = KeepersSecretManager(config, connector_info=connector_info)
         response = ksm.get_password_details(config, connector_info=connector_info)
         if response:
             return True
