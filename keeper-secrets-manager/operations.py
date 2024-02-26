@@ -139,7 +139,7 @@ def get_credential(config, params, connector_info):
 
 def _check_health(config, connector_info):
     try:
-        ksm = KeepersSecretManager(config, connector_info=connector_info)
+        ksm = KeepersSecretManager(config, connector_info=connector_info, flag=True)
         response = ksm.get_password_details(config, connector_info=connector_info)
         if response:
             return True
