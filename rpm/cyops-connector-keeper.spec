@@ -5,7 +5,7 @@ Release: %{build_no}%{dist}
 Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-root
 
-Requires: cyops-integrations, lsof, cyops-api, cyops-connector-cyops_utilities >= 2.5.0
+Requires: cyops-integrations, lsof, cyops-connector-cyops_utilities >= 2.5.0
 
 Summary: Fortinet %{connector_display_name} Connector
 %description
