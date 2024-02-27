@@ -1,0 +1,123 @@
+{
+  "name": "keeper-secrets-manager",
+  "version": "1.0.0",
+  "label": "Keeper Secrets Manager",
+  "description": "Keeper Secrets Manager is a tool designed to securely manage sensitive information, such as passwords, API keys, and other credentials, within an organization. It provides a centralized platform for storing, accessing, and sharing these secrets while maintaining strong encryption and access controls to protect sensitive data.",
+  "publisher": "Fortinet",
+  "cs_approved": true,
+  "cs_compatible": true,
+  "tags": [
+    "vault"
+  ],
+  "category": "Vault",
+  "help_online": "",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "ingestion_supported": false,
+  "configuration": {
+    "fields": [
+      {
+        "title": "One Time Access Token",
+        "name": "credentials",
+        "description": "Specify the one time access token of the application.",
+        "type": "password",
+        "visible": true,
+        "editable": true,
+        "required": true
+      },
+      {
+        "title": "Verify SSL",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not.By default, this option is set as True.",
+        "name": "verify_ssl",
+        "type": "checkbox",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_password",
+      "visible": true,
+      "category": "investigation",
+      "annotation": "get_password",
+      "description": "Enables applications to retrieve passwords from the Keepers Secret Manager.",
+      "title": "Get Password",
+      "parameters": [],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "operation": "get_credentials",
+      "visible": false,
+      "category": "investigation",
+      "annotation": "get_credentials",
+      "description": "Get a list of all the secrets.",
+      "title": "Get Credentials",
+      "parameters": [],
+      "output_schema": {
+        "key": "",
+        "display_name": ""
+      },
+      "enabled": true
+    },
+    {
+      "operation": "get_credentials_details",
+      "visible": false,
+      "category": "investigation",
+      "annotation": "get_credentials_details",
+      "description": "Get information about an specific secret identified by its UID.",
+      "title": "Get Credentials Details",
+      "parameters": [
+        {
+          "title": "Secret ID",
+          "description": "ID for which you want to retrieves the details of secret that you have specified from the Vault.",
+          "name": "secret_id",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true
+        }
+      ],
+      "output_schema": {
+        "field_name": "",
+        "value": ""
+      },
+      "enabled": true
+    },
+    {
+      "operation": "get_credential",
+      "visible": false,
+      "category": "investigation",
+      "annotation": "get_credential",
+      "description": "It enables users to retrieve the password of an existing secret that is identified by its UID.",
+      "title": "Get Credential",
+      "parameters": [
+        {
+          "title": "Secret ID",
+          "description": "ID for which you want to retrieves the password of secret that you have specified from the Vault.",
+          "name": "secret_id",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true
+        },
+        {
+          "title": "Attribute Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "attribute_name",
+          "description": "An attribute name among the available params from fields of the secret for whose value needs to be retrieved"
+        }
+      ],
+      "output_schema": {
+        "password": ""
+      },
+      "enabled": true
+    }
+  ]
+}

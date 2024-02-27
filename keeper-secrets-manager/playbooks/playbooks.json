@@ -1,0 +1,124 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - Keeper Secrets Manager",
+      "description": null,
+      "visible": true,
+      "image": null,
+      "uuid": "18768e2d-c708-4fc5-839c-2e8f66b8c279",
+      "id": 45,
+      "deletedAt": null,
+      "importedBy": [],
+      "recordTags": [
+        "keeper-secrets-manager"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Password",
+          "aliasName": null,
+          "tag": null,
+          "description": "Enables applications to retrieve passwords from the Keepers Secret Manager.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1708538535,
+          "collection": "/api/3/workflow_collections/18768e2d-c708-4fc5-839c-2e8f66b8c279",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/beabb023-211e-49d8-b7df-2060bb415366",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Password",
+              "description": null,
+              "arguments": {
+                "name": "Keeper Secrets Manager",
+                "config": "fd13296b-3aed-4672-8409-d9bbb838fd95",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "keeper-secrets-manager",
+                "operation": "get_password",
+                "operationTitle": "Get Password",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "1d7a8dad-fb05-44ab-a5fb-e5f5e132502e"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "9f94a849-fcf6-4251-bfd1-eb87178cb2dd",
+                "title": "Keeper Secrets Manager: Get Password",
+                "resources": [
+                  "alerts"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "beabb023-211e-49d8-b7df-2060bb415366"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Password",
+              "targetStep": "/api/3/workflow_steps/1d7a8dad-fb05-44ab-a5fb-e5f5e132502e",
+              "sourceStep": "/api/3/workflow_steps/beabb023-211e-49d8-b7df-2060bb415366",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "1b5b7f6f-2264-48f8-a8f2-c3e303b72f9a"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "6da70f2b-f36a-4fc9-8afc-97066ca6b1a8",
+          "id": 516,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "keeper-secrets-manager"
+          ]
+        }
+      ]
+    }
+  ],
+  "exported_tags": [
+    "keeper-secrets-manager"
+  ]
+}
