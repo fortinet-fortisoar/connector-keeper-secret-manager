@@ -1,3 +1,0 @@
-keeper-secrets-manager-core
-importlib-metadata
-zipp
