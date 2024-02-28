@@ -101,19 +101,6 @@ class KeepersSecretManager:
                 }
 
 
-def get_password(config, params, connector_info):
-    try:
-        records = []
-        ksm = KeepersSecretManager(config, connector_info=connector_info)
-        all_secrets = ksm.get_password_details(config, connector_info)
-        for secret in all_secrets:
-            records.append(secret.dict)
-        return records
-    except Exception as err:
-        logger.exception("{0}".format(str(err)))
-        raise ConnectorError("{0}".format(str(err)))
-
-
 def get_credentials(config, params, connector_info):
     try:
         ksm = KeepersSecretManager(config, connector_info=connector_info)
@@ -153,7 +140,6 @@ def _check_health(config, connector_info):
 
 
 operations = {
-    'get_password': [get_password],
     'get_credentials': [get_credentials],
     'get_credentials_details': [get_credentials_details],
     'get_credential': [get_credential]
