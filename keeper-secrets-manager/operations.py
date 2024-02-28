@@ -69,6 +69,8 @@ class KeepersSecretManager:
         if secret:
             records = secret.dict
             if records:
+                for cust_field in records.get('custom'):
+                    records['fields'].append({'type': cust_field.get('label'), 'value': cust_field.get('value')})
                 for field in records.get('fields'):
                     formatted_output.append(
                         {
@@ -85,6 +87,8 @@ class KeepersSecretManager:
         if secret:
             records = secret.dict
             if records:
+                for cust_field in records.get('custom'):
+                    records['fields'].append({'type': cust_field.get('label'), 'value': cust_field.get('value')})
                 for field in records.get('fields'):
                     if field.get('type') == attribute_name:
                         return {
