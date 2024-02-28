@@ -39,17 +39,6 @@
   },
   "operations": [
     {
-      "operation": "get_password",
-      "visible": true,
-      "category": "investigation",
-      "annotation": "get_password",
-      "description": "Enables applications to retrieve passwords from the Keepers Secret Manager.",
-      "title": "Get Password",
-      "parameters": [],
-      "output_schema": {},
-      "enabled": true
-    },
-    {
       "operation": "get_credentials",
       "visible": false,
       "category": "investigation",
