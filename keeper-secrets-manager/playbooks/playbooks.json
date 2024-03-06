@@ -1,0 +1,23 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - Keeper Secrets Manager",
+      "description": "Keeper Secrets Manager is a tool designed to securely manage sensitive information, such as passwords, API keys, and other credentials, within an organization. It provides a centralized platform for storing, accessing, and sharing these secrets while maintaining strong encryption and access controls to protect sensitive data.",
+      "visible": true,
+      "image": null,
+      "uuid": "18768e2d-c708-4fc5-839c-2e8f66b8c279",
+      "id": 45,
+      "deletedAt": null,
+      "importedBy": [],
+      "recordTags": [
+        "keeper-secrets-manager"
+      ],
+      "workflows": []
+    }
+  ],
+  "exported_tags": [
+    "keeper-secrets-manager"
+  ]
+}
